@@ -1,0 +1,86 @@
+//AICP WEEK 04 TASK
+#include <iostream>
+#include <cmath>
+
+class Hexagon {
+private:
+    double side;
+public:
+    Hexagon(double s) : side(s) {}
+
+    double calcArea() {
+        return 1.5 * 1.732 * side;
+    }
+
+    double calcPeri() {
+        return 6 * side;
+    }
+
+    double calcAngleSum() {
+        return 6 * pow(120, 2);
+    }
+
+    void display() {
+        std::cout << "Area of hexagon is: " << calcArea() << std::endl;
+        std::cout << "Perimeter of Hexagon is: " << calcPeri() << std::endl;
+        std::cout << "Sum of angles of hexagon is: " << calcAngleSum() << std::endl;
+    }
+};
+class Square {
+private:
+    double side;
+public:
+    Square(double s) : side(s) {}
+
+    double calcAreaSquare() {
+        return pow(side, 2);
+    }
+
+    double calcPeriSquare() {
+        return 4 * side;
+    }
+
+    void display() {
+        std::cout << "Area of square is: " << calcAreaSquare() << std::endl;
+        std::cout << "Perimeter of square is: " << calcPeriSquare() << std::endl;
+    }
+};
+
+int main() {
+    // Use the last digit of your CNIC as the length of one side of hexagon
+    int lastDigit = 90; 
+    int hexagonSide = lastDigit;
+
+    // Length of one side of square = last digit of CNIC + 1
+    int squareSide = lastDigit + 1;
+    Hexagon hex(hexagonSide);
+    Square square(squareSide);
+
+    int choice;
+    do {
+        std::cout << "Enter 1 to calculate area, perimeter and sum of angles of hexagon." << std::endl;
+        std::cout << "Enter 2 to calculate area and perimeter of square." << std::endl;
+        std::cout << "Enter any other key to exit." << std::endl;
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                hex.display();
+                break;
+            case 2:
+                square.display();
+                break;
+            default:
+                std::cout << "Exiting the program." << std::endl;
+                break;
+        }
+    } while (choice == 1 || choice == 2);
+
+    return 0;
+}
+
+
+
+
+
+
